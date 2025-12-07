@@ -1,5 +1,5 @@
 {
-  "name": "reservation-api",
+  "name": "tsx-api-template",
   "version": "1.0.0",
   "scripts": {
     "start": "npx tsx index.ts",

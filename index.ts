@@ -4,6 +4,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import authenticate from './middleware/authenticate';
 import userRoutes from './user/userRoutes';
+import { notFoundHandler, errorHandler } from './middleware/error';
 
 const app = express();
 const port = process.env.PORT;
@@ -13,6 +14,8 @@ app.use(helmet());
 app.use(cors());
 
 app.use('/v1/users', authenticate, userRoutes);
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
